@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="form-center">
+        <div class="form-wrapper">
+
+            <div class="header-container">
+                <a href="{% url 'homeView' %}">
+                    <img src="{% static 'img/undo.png' %}" class="header-img" alt="not found" >
+                </a>
+                <h2 class="header-title">Profile</h2>
+            </div><hr><br>
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <label for="username">Username: </label>
+                <input type="text" name="username" class="form-control" readonly value={{request.user|title}}>
+                {{ form.as_p }}
+                <a href="">Delete your Account</a><br><br>
+                <input type="submit" value="save" class="form-input">
+            </form>
+
+        </div>
+    </div>
+    
+
+{% endblock %}

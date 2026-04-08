@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-center">
+    <div class="form-wrapper">
+
+        <h2>Login</h2><hr>
+        
+        <form method="post">
+            {% csrf_token %}
+            
+            <label>Email</label>
+            <input type="email" name="email" class="form-input" required>
+
+            <label>Password</label>
+            <input type="password" name="password" class="form-input" required>
+
+            <input type="submit" class="form-input" value="Login">
+        </form><br>
+
+        <small>Don't have an account? 
+            <a href="{% url 'registerUser' %}">Sign Up</a>
+        </small>
+        
+    </div>
+</div>
+
+{% endblock %}

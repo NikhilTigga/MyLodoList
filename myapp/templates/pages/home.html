@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+
+        {% include 'authenticated_user.html' %}
+
+    {% else %}
+
+        {% include 'anonymous_user.html' %}
+
+    {% endif %}
+
+{% endblock %}

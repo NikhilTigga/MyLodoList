@@ -1,0 +1,79 @@
+{% load static %}
+
+<div class="container">
+
+   
+    <div class="align-center"><h1>Home Page</h1></div>
+     
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        This is a demo version of the To-do App. Please login in to manage your tasks.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <ul class="nav justify-content-between">
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <img src="{% static 'img/new.png' %}" alt="not found">
+            </a>
+        </li>
+        <li class="nav-item">
+            <h2>To-do App</h2>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled text-dark" aria-disabled="true">
+                100
+                <img src="{% static 'img/point.png' %}" alt="not found">
+            </a>
+        </li>
+    </ul>
+
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Status</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-danger">
+                <th scope="row">1-</th>
+                <td>Python</td>
+                <td>
+                    <img src="{% static 'img/pending.png' %}" alt="not found">
+                </td>
+                <td>
+                    <a href="">
+                        <img src="{% static 'img/edit.png' %}" alt="not found">
+                    </a>
+                </td>
+                <td>
+                    <a href="">
+                        <img src="{% static 'img/trash.png' %}" alt="not found">
+                    </a>
+                </td>
+            </tr>
+            <tr class="table-success">
+                <th scope="row">2-</th>
+                <td>Django</td>
+                <td>
+                    <img src="{% static 'img/finished.png' %}" alt="not found">
+                </td>
+                <td>
+                    <a href="">
+                        <img src="{% static 'img/edit.png' %}" alt="not found">
+                    </a>
+                </td>
+                <td>
+                    <a href="">
+                        <img src="{% static 'img/trash.png' %}" alt="not found">
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

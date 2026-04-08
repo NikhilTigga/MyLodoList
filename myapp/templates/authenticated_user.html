@@ -1,0 +1,89 @@
+{% load static %}
+
+<div class="container">
+
+    
+    <ul class="nav justify-content-between">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'createView' %}">
+                <img src="{% static '/img/new.png' %}" alt="not found">
+            </a>
+        </li>
+        
+        <div></div>
+
+        <li class="nav-item">
+            <h2>To-do App</h2>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link disabled text-dark" aria-disabled="true">
+                {{ score.total_score }}
+                <img src="{% static '/img/point.png' %}" alt="not found">
+            </a>
+        </li>
+    </ul>
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Status</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in data %}
+                {% if todo.is_available %}
+                    <tr class="table-danger">
+                {% else %}
+                    <tr class="table-success">
+                {% endif %}
+                    <th scope="row">{{ forloop.counter }}-</th>
+                    <td>
+                        <a>{{ todo.title|title }}</a>
+                    </td>
+                    <td>
+                        <a >{{ todo.description|title }}</a>
+                    </td>
+                    <td>
+                        <a>{{ todo.created_at|title }}</a>
+                    </td>
+                    <td>
+                        {% if todo.status == 'completed' %}
+                            <img src="{% static '../static/img/finished.png' %}" alt="not found">
+                        {% else %}
+                            <img src="{% static '../static/img/pending.png' %}" alt="not found">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'editView' todo.id  %}">
+                            <img src="{% static '../static/img/edit.png' %}" alt="not found">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'deleteTodoListview' todo.id  %}">
+                            <img src="{% static '../static/img/trash.png' %}" alt="not found">
+                        </a>
+                    </td>
+                </tr>
+
+                {% empty %}
+
+                <tr class="table-secondary">
+                    <th scope="row">1-</th>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

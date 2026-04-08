@@ -1,0 +1,47 @@
+{% load static %}
+
+<ul class="nav d-flex justify-content-center nav-back nav-underline">
+
+  {% if request.user.is_authenticated %}
+
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{% url 'homeView' %}">
+        <img src="{% static 'img/home.png' %}" alt="home">
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{% url 'profile' %}">
+        <img src="{% static 'img/profile.png' %}" alt="profile">
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{% url 'logout' %}">
+        <img src="{% static 'img/exit.png' %}" alt="logout">
+      </a>
+    </li>
+
+  {% else %}
+
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{% url 'homeView' %}">
+        <img src="{% static 'img/home.png' %}" alt="home">
+      </a>
+    </li>
+
+    <li class="nav-item ">
+      <a class="nav-link text-dark" href="{% url 'registerUser' %}">
+        <img src="{% static 'img/register.png' %}" alt="register">
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{% url 'login' %}">
+        <img src="{% static 'img/key.png' %}" alt="key">
+      </a>
+    </li> 
+
+  {% endif %}
+
+</ul>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% load static %} {% load tz %} {% block content %}
+
+<div class="form-center">
+  <div class="form-wrapper">
+    <div class="header-container">
+      <a href="">
+        <img
+          src="{% static 'img/undo.png' %}"
+          alt="not found"
+          class="header-img"
+        />
+      </a>
+      <h2 class="header-title">Create</h2>
+    </div>
+    <hr />
+
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    {% endif %}
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+
+      <!-- Title -->
+      <label>Title</label>
+      <input type="text" name="title" class="form-input" required />
+
+      <!-- Description -->
+      <label>Description</label>
+      <textarea name="description" class="form-input" rows="4"></textarea>
+
+      <!-- Status -->
+      <label>Created at</label>
+      <input
+        type="text"
+        class="form-input"
+        value="{% now 'd M Y, h:i A' %}"
+        readonly
+      />
+
+      <input type="submit" value="Create" class="form-input" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-center">
+    
+    <div class="form-wrapper">
+        
+
+        <h2>Sign Up</h2><hr>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <input type="text" name="username" class="form-input" placeholder="Username" required><br><br>
+
+            <!-- Email -->
+            <input type="email" name="email" class="form-input text-dark" placeholder="Email" required style="background-color: aliceblue !important;"><br><br>
+
+            <!-- Password -->
+            <input type="password" name="password" class="form-input" placeholder="Password" required><br><br>
+
+            <!-- Profile Image -->
+            <input type="file" name="image" class="form-input text-dark" style="background-color: aliceblue !important;"><br><br>
+
+            <input type="submit" class="form-input" value="Sign Up">
+        </form><br>
+
+        <small>Already a member? <a href="{% url 'login' %}">Login</a></small>
+
+    </div>
+</div>
+
+{% endblock %}

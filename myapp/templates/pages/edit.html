@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="form-center">
+    <div class="form-wrapper">
+        
+        <div class="header-container">
+            <a href="">
+                <img src="{% static 'img/undo.png' %}" alt="" class="header-img">
+            </a>
+            <h2 class="header-title">Edit</h2>
+        </div>
+        <hr>
+
+        <form method="post"  novalidate>
+            {% csrf_token %}
+
+            <!-- Title -->
+            <label>Title</label>
+            <input 
+                type="text" 
+                name="title" 
+                class="form-input"
+                value="{{data.title}}" 
+                required
+            >
+
+            <!-- Description -->
+            <label>Description</label>
+            <textarea 
+                name="description" 
+                class="form-input" 
+                rows="4"
+            >{{ data.description}}</textarea>
+
+            <!-- Status -->
+            <label>Status</label>
+            <select name="is_done" class="form-input">
+                <option value="pending"selected>Pending</option>
+                <option value="completed"selected>Completed</option>
+            </select>
+
+            <br><br>
+
+            <input type="submit" value="Edit" class="form-input">
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
