@@ -28,8 +28,10 @@ SECRET_KEY = 'django-insecure-oav@xzwtc$u%)a9^ux)b4q6mzqp^#x06ccwfqw#j$0h8u!x2ei
 DEBUG = True
 
 ALLOWED_HOSTS = ['mylodolist.onrender.com']
-
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://mylodolist.onrender.com"
+]
+DEBUG = False
 # Application definition
 
 INSTALLED_APPS = [
